@@ -1,18 +1,27 @@
-<h4> Share yours ideas </h4>
-<div class="row">
-    <form action="{{ route('ideas.store') }}" method="POST">
-        @csrf
-        <div class="mb-3">
-            <textarea class="form-control" name="idea" id="idea" rows="3"></textarea>
+@auth
 
-            @error('idea')
-                <span class="d-block fs-6 text-danger mt-2">{{ $message }}</span>
-            @enderror
 
-        </div>
+    <h4> Share yours ideas </h4>
+    <div class="row">
+        <form action="{{ route('ideas.store') }}" method="POST">
+            @csrf
+            <div class="mb-3">
+                <textarea class="form-control" name="content" id="content" rows="3"></textarea>
 
-        <div class="">
-            <button type="submit" class="btn btn-dark"> Share </button>
-        </div>
-    </form>
-</div>
+                @error('content')
+                    <span class="d-block fs-6 text-danger mt-2">{{ $message }}</span>
+                @enderror
+
+            </div>
+
+            <div class="">
+                <button type="submit" class="btn btn-dark"> Share </button>
+            </div>
+        </form>
+    </div>
+@endauth
+
+@guest
+    <h4>Login to Share Your Idea</h4>
+    <a href="{{ route('login') }}"><button class="btn btn-primary">Login</button></a>
+@endguest
