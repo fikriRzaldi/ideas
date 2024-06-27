@@ -6,7 +6,7 @@
                     src="https://api.dicebear.com/6.x/fun-emoji/svg?seed={{ $idea->user->name }}"
                     alt=" {{ $idea->user->name }}">
                 <div>
-                    <h5 class="card-title mb-0"><a href="#"> {{ $idea->user->name }} {{-- cara ngakses data yang berasaal dari relationship --}}
+                    <h5 class="card-title mb-0"><a href="users/{{$idea->user->id}}"> {{ $idea->user->name }} {{-- cara ngakses data yang berasaal dari relationship --}}
                         </a></h5>
                 </div>
             </div>
